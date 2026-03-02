@@ -409,8 +409,18 @@
             </table>
 
             <div style="background-color: #ffffff; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 25px; text-align: center;">
-                <div style="font-size: 16px; color: #64748b; margin-bottom: 15px;">Valor da Sessão</div>
-                <div style="font-size: 36px; font-weight: bold; color: #1e293b; margin-bottom: 10px;">R$ 147</div>
+                <div style="font-size: 16px; color: #64748b; margin-bottom: 10px;">Valor da Sessão</div>
+                <div style="font-size: 20px; color: #94a3b8; text-decoration: line-through; margin-bottom: 5px;">R$ 247,90</div>
+                
+                <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 10px; margin: 15px auto; max-w: 80%; display: inline-block;">
+                    <div style="color: #16a34a; font-size: 13px; font-weight: bold; margin-bottom: 5px;">🎉 Cashback de R$ 29,90 liberado!</div>
+                    <div style="color: #15803d; font-size: 12px; line-height: 1.4;">
+                        Como você já investiu no seu Relatório Completo, use esse valor como crédito.<br>
+                        <strong>Válido apenas nas próximas 24 horas.</strong>
+                    </div>
+                </div>
+
+                <div style="font-size: 36px; font-weight: bold; color: #1e293b; margin-top: 10px;">R$ 217,10</div>
                 
                 <div style="margin-top: 25px;">
                     <div style="font-weight: bold; color: #0f172a; margin-bottom: 10px;">Como garantir seu acesso:</div>
