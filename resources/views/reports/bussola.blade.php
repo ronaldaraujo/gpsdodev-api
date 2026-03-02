@@ -3,9 +3,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Bússola Profissional - GPS do Dev</title>
+    <!-- Use Inter font which matches the UI closely -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
             color: #0f172a;
             margin: 0;
@@ -14,14 +16,14 @@
         .page-break {
             page-break-after: always;
         }
-        .text-accent { color: #f97316; }
-        .bg-accent { background-color: #f97316; }
+        .text-accent { color: #b845cf; }
+        .bg-accent { background-color: #b845cf; }
         
         .header-title {
             text-align: center;
             font-size: 18px;
             font-weight: bold;
-            color: #f97316;
+            color: #b845cf;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 100px;
@@ -72,7 +74,7 @@
         .profile-name {
             font-size: 24px;
             font-weight: bold;
-            color: #f97316;
+            color: #b845cf;
             margin: 0 0 15px 0;
         }
         
@@ -95,7 +97,7 @@
         .section-title {
             font-size: 24px;
             font-weight: bold;
-            border-bottom: 2px solid #f97316;
+            border-bottom: 2px solid #b845cf;
             padding-bottom: 5px;
             margin-bottom: 30px;
             display: inline-block;
@@ -156,7 +158,7 @@
         /* Detailed Analysis */
         .detail-card {
             background-color: #ffffff;
-            border-top: 4px solid #f97316;
+            border-top: 4px solid #b845cf;
             border-left: 1px solid #e2e8f0;
             border-right: 1px solid #e2e8f0;
             border-bottom: 1px solid #e2e8f0;
@@ -213,15 +215,15 @@
         }
         .action-number {
             width: 24px;
-            height: 24px;
-            background-color: #f97316;
+            height: 19px;
+            padding-top: 5px;
+            background-color: #b845cf;
             color: #ffffff;
             border-radius: 12px;
             text-align: center;
             font-weight: bold;
             font-size: 12px;
-            line-height: 24px;
-            vertical-align: top;
+            vertical-align: middle;
         }
         .action-text {
             padding-left: 15px;
@@ -281,7 +283,10 @@
             <div class="overview-card" style="margin-bottom: 20px;">
                 <table class="overview-header">
                     <tr>
-                        <td class="overview-icon-label">{{ $data['icon'] }} {{ $data['label'] }}</td>
+                        <td class="overview-icon-label">
+                            <img src="{{ public_path('icons/' . $dimKey . '.svg') }}" width="20" height="20" style="vertical-align: -4px; margin-right: 6px; fill: #1e293b;">
+                            {{ $data['label'] }}
+                        </td>
                         <td class="overview-score {{ $textClass }}">{{ $data['score'] }} <span style="font-size: 14px; color: #64748b;">/ 100</span></td>
                     </tr>
                 </table>
@@ -305,7 +310,10 @@
             <div class="detail-card">
                 <table class="detail-header-table">
                     <tr>
-                        <td class="detail-title">{{ $data['icon'] }} {{ $data['label'] }}</td>
+                        <td class="detail-title">
+                            <img src="{{ public_path('icons/' . $dimKey . '.svg') }}" width="22" height="22" style="vertical-align: -4px; margin-right: 6px;"> 
+                            {{ $data['label'] }}
+                        </td>
                         <td align="right">
                             <div class="detail-score-badge">
                                 Score: {{ $data['score'] }} <span style="font-size: 12px; font-weight: normal; color: #64748b;">({{ $data['level_label'] }})</span>
@@ -322,8 +330,8 @@
                     @foreach($data['action_plan'] as $idx => $action)
                         <table class="action-item-table">
                             <tr>
-                                <td width="30"><div class="action-number">{{ $idx + 1 }}</div></td>
-                                <td class="action-text">{{ $action }}</td>
+                                <td width="30" valign="top"><div class="action-number">{{ $idx + 1 }}</div></td>
+                                <td class="action-text" valign="top">{{ $action }}</td>
                             </tr>
                         </table>
                     @endforeach
@@ -334,7 +342,7 @@
                         <div class="sub-title">Leituras Recomendadas (GPS do Dev)</div>
                         @foreach($data['recommended_content'] as $content)
                             <a href="{{ $content['url'] }}" class="link-item">
-                                <span style="color: #f97316; margin-right: 8px;">&#128279;</span>
+                                <span style="color: #b845cf; margin-right: 8px;">&#128279;</span>
                                 {{ $content['title'] }}
                             </a>
                         @endforeach
