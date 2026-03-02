@@ -6,12 +6,13 @@
     <!-- Use Inter font which matches the UI closely -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        @page { margin: 40px 40px 80px 40px; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
             color: #0f172a;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
         .page-break {
             page-break-after: always;
@@ -41,6 +42,7 @@
             margin: 0 auto;
             width: 80%;
             text-align: left;
+            page-break-inside: avoid;
         }
         .profile-label {
             font-size: 12px;
@@ -107,6 +109,7 @@
             border: 1px solid #e2e8f0;
             border-radius: 8px;
             padding: 15px;
+            page-break-inside: avoid;
         }
         .overview-header {
             width: 100%;
@@ -158,6 +161,7 @@
             border-radius: 8px;
             padding: 25px;
             margin-bottom: 40px;
+            page-break-inside: avoid;
         }
         
         .detail-header-table {
@@ -240,6 +244,11 @@
     </style>
 </head>
 <body>
+
+    <footer style="position: fixed; bottom: -50px; left: 0px; right: 0px; height: 30px; border-top: 1px solid #e2e8f0; padding-top: 10px; font-size: 11px; color: #64748b; font-weight: 500;">
+        <img src="{{ public_path('logo-light.png') }}" height="18" style="vertical-align: middle; margin-right: 10px;">
+        <span style="vertical-align: middle;">Relatório elaborado para: <strong>{{ $report->name }}</strong></span>
+    </footer>
 
     <!-- Cover Page -->
     <div>
