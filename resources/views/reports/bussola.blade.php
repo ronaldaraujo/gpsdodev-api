@@ -19,15 +19,10 @@
         .text-accent { color: #b845cf; }
         .bg-accent { background-color: #b845cf; }
         
-        .header-title {
+        .header-logo {
             text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: #b845cf;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 100px;
-            margin-bottom: 20px;
+            margin-top: 60px;
+            margin-bottom: 30px;
         }
         .main-title {
             text-align: center;
@@ -86,9 +81,7 @@
         }
         
         .footer {
-            position: absolute;
-            bottom: 30px;
-            width: 100%;
+            margin-top: 80px;
             text-align: center;
             font-size: 12px;
             color: #94a3b8;
@@ -249,8 +242,8 @@
 <body>
 
     <!-- Cover Page -->
-    <div style="position: relative; height: 100%;">
-        <div class="header-title">GPS do Dev</div>
+    <div>
+        <div class="header-logo"><img src="{{ public_path('logo-dark.png') }}" height="45" alt="GPS do Dev"></div>
         <div class="main-title">Relatório Completo<br/>Bússola Profissional</div>
         
         <div class="profile-box">
