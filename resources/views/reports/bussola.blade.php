@@ -6,12 +6,13 @@
     <!-- Use Inter font which matches the UI closely -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        @page { margin: 40px 40px 80px 40px; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
             color: #0f172a;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
         .page-break {
             page-break-after: always;
@@ -41,6 +42,7 @@
             margin: 0 auto;
             width: 80%;
             text-align: left;
+            page-break-inside: avoid;
         }
         .profile-label {
             font-size: 12px;
@@ -107,6 +109,7 @@
             border: 1px solid #e2e8f0;
             border-radius: 8px;
             padding: 15px;
+            page-break-inside: avoid;
         }
         .overview-header {
             width: 100%;
@@ -158,6 +161,7 @@
             border-radius: 8px;
             padding: 25px;
             margin-bottom: 40px;
+            page-break-inside: avoid;
         }
         
         .detail-header-table {
@@ -240,6 +244,19 @@
     </style>
 </head>
 <body>
+
+    <footer style="position: fixed; bottom: -50px; left: 0px; right: 0px; height: 30px; border-top: 1px solid #e2e8f0; padding-top: 10px; font-size: 11px; color: #64748b; font-weight: 500; font-family: 'Inter', sans-serif;">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="text-align: left; width: 50%; vertical-align: middle;">
+                    <img src="{{ public_path('logo-light.png') }}" height="18">
+                </td>
+                <td style="text-align: right; width: 50%; vertical-align: middle; font-style: italic;">
+                    Relatório elaborado para: <strong>{{ $report->name }}</strong>
+                </td>
+            </tr>
+        </table>
+    </footer>
 
     <!-- Cover Page -->
     <div>
@@ -347,6 +364,69 @@
                 <div class="page-break"></div>
             @endif
         @endforeach
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Mentorship Upsell Page -->
+    <div style="page-break-inside: avoid;">
+        <div class="header-logo"><img src="{{ public_path('logo-light.png') }}" height="45" alt="GPS do Dev"></div>
+        <div class="main-title" style="font-size: 32px; margin-bottom: 20px;">Vá além do diagnóstico.</div>
+        
+        <div class="profile-box" style="border: 2px solid #b845cf; background-color: #faf5ff;">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span style="background-color: #b845cf; color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; text-transform: uppercase;">Acesso Direto</span>
+            </div>
+            
+            <div style="text-align: center; font-size: 28px; font-weight: bold; color: #1e293b; margin-bottom: 15px;">
+                Mentoria Assíncrona via WhatsApp (1:1)
+            </div>
+            
+            <p style="color: #475569; font-size: 16px; line-height: 1.6; text-align: center; margin-bottom: 30px;">
+                O GPS do Dev te deu a direção. Agora, vamos pavimentar o caminho <strong>juntos</strong>. Receba acompanhamento focado 100% no seu desenvolvimento pessoal e evolução de carreira.
+            </p>
+
+            <table style="width: 100%; margin-bottom: 30px;">
+                <tr>
+                    <td style="width: 50%; vertical-align: top; padding-right: 15px;">
+                        <div style="font-weight: bold; margin-bottom: 10px; color: #b845cf;">Como funciona:</div>
+                        <ul style="color: #334155; font-size: 14px; line-height: 1.6; padding-left: 20px; margin: 0;">
+                            <li style="margin-bottom: 5px;">Mande áudio, texto ou vídeo no seu tempo.</li>
+                            <li style="margin-bottom: 5px;">Envie suas dúvidas de carreira, transição ou desenvolvimento pessoal.</li>
+                            <li style="margin-bottom: 5px;">Respostas construtivas e diretas para destravar sua jornada.</li>
+                            <li>Sem conflito de agenda: o apoio que você precisa, direto no seu WhatsApp.</li>
+                        </ul>
+                    </td>
+                    <td style="width: 50%; vertical-align: top; border-left: 1px solid #e2e8f0; padding-left: 15px;">
+                        <div style="font-weight: bold; margin-bottom: 10px; color: #b845cf;">A quem se destina:</div>
+                        <ul style="color: #334155; font-size: 14px; line-height: 1.6; padding-left: 20px; margin: 0;">
+                            <li style="margin-bottom: 5px;">Devs estagnados precisando de clareza de carreira.</li>
+                            <li style="margin-bottom: 5px;">Profissionais buscando a ponte comportamental para a Senioridade.</li>
+                            <li style="margin-bottom: 5px;">Quem precisa desenhar os próximos passos sem ansiedade.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="background-color: #ffffff; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 25px; text-align: center;">
+                <div style="font-size: 16px; color: #64748b; margin-bottom: 15px;">Valor da Sessão</div>
+                <div style="font-size: 36px; font-weight: bold; color: #1e293b; margin-bottom: 10px;">R$ 147</div>
+                
+                <div style="margin-top: 25px;">
+                    <div style="font-weight: bold; color: #0f172a; margin-bottom: 10px;">Como garantir seu acesso:</div>
+                    <ol style="color: #475569; font-size: 14px; text-align: left; padding-left: 20px; margin-bottom: 10px;">
+                        <li style="margin-bottom: 5px;">Faça um PIX no valor acima para a chave: <strong>pix@gpsdodev.com.br</strong></li>
+                        <li>Envie o comprovante para <strong>pix@gpsdodev.com.br</strong> e abriremos o canal no WhatsApp com você.</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="font-size: 14px; color: #64748b;">
+                    Ficou com alguma dúvida? Mande um email para <strong>contato@gpsdodev.com.br</strong>
+                </p>
+            </div>
+        </div>
     </div>
 
 </body>
