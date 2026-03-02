@@ -243,7 +243,7 @@
 
     <!-- Cover Page -->
     <div>
-        <div class="header-logo"><img src="{{ public_path('logo-dark.png') }}" height="45" alt="GPS do Dev"></div>
+        <div class="header-logo"><img src="{{ public_path('logo-custom.jpg') }}" height="40" alt="GPS do Dev"></div>
         <div class="main-title">Relatório Completo<br/>Bússola Profissional</div>
         
         <div class="profile-box">
