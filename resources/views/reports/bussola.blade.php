@@ -342,7 +342,7 @@
                         <div class="sub-title">Leituras Recomendadas (GPS do Dev)</div>
                         @foreach($data['recommended_content'] as $content)
                             <a href="{{ $content['url'] }}" class="link-item">
-                                <span style="color: #b845cf; margin-right: 8px;">&#128279;</span>
+                                <img src="{{ public_path('icons/link.svg') }}" width="16" height="16" style="vertical-align: -2px; margin-right: 6px; fill: #b845cf;">
                                 {{ $content['title'] }}
                             </a>
                         @endforeach
