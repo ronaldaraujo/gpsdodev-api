@@ -413,7 +413,7 @@
                 <div style="font-size: 20px; color: #94a3b8; text-decoration: line-through; margin-bottom: 5px;">R$ 247,90</div>
                 
                 <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 10px; margin: 15px auto; max-w: 80%; display: inline-block;">
-                    <div style="color: #16a34a; font-size: 13px; font-weight: bold; margin-bottom: 5px;">🎉 Cashback de R$ 29,90 liberado!</div>
+                    <div style="color: #16a34a; font-size: 13px; font-weight: bold; margin-bottom: 5px;">Cashback de R$ 29,90 liberado!</div>
                     <div style="color: #15803d; font-size: 12px; line-height: 1.4;">
                         Como você já investiu no seu Relatório Completo, use esse valor como crédito.<br>
                         <strong>Válido apenas nas próximas 24 horas.</strong>
