@@ -23,3 +23,5 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 puppeteer
+/public/posts.json
+/public/logo.png
