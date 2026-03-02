@@ -16,6 +16,9 @@ class BussolaReportService
             return [];
         }
 
+        // Fetch dynamic recommended posts based on tags
+        $recommendedContent = $this->getDynamicRecommendedContent($data['target_tags']);
+
         return [
             'label' => $data['label'],
             'icon' => $data['icon'],
@@ -23,8 +26,50 @@ class BussolaReportService
             'level_label' => $this->getScoreLabel($score),
             'analysis' => $data['analysis'][$level],
             'action_plan' => $data['action_plan'][$level],
-            'recommended_content' => $data['recommended_content']
+            'recommended_content' => $recommendedContent
         ];
+    }
+
+    private function getDynamicRecommendedContent(array $targetTags, int $limit = 2): array
+    {
+        $posts = \App\Models\SitePost::all();
+        
+        $scoredPosts = [];
+        
+        foreach ($posts as $post) {
+            $postTags = $post->tags ?? [];
+            $matchCount = count(array_intersect($targetTags, $postTags));
+            
+            if ($matchCount > 0) {
+                $scoredPosts[] = [
+                    'post' => $post,
+                    'score' => $matchCount
+                ];
+            }
+        }
+        
+        // Sort by score (desc), then by published_at (desc)
+        usort($scoredPosts, function($a, $b) {
+            if ($a['score'] === $b['score']) {
+                $dateA = $a['post']->published_at ? $a['post']->published_at->timestamp : 0;
+                $dateB = $b['post']->published_at ? $b['post']->published_at->timestamp : 0;
+                return $dateB <=> $dateA;
+            }
+            return $b['score'] <=> $a['score'];
+        });
+        
+        $top = array_slice($scoredPosts, 0, $limit);
+        
+        $result = [];
+        foreach ($top as $item) {
+            $result[] = [
+                'title' => $item['post']->title,
+                'url' => $item['post']->url,
+                'type' => 'Post'
+            ];
+        }
+        
+        return $result;
     }
 
     private function getScoreLevel(int $score): string
@@ -72,18 +117,7 @@ class BussolaReportService
                         'Converse com um mentor ou dev mais experiente não sobre código, mas sobre plano de vida.'
                     ]
                 ],
-                'recommended_content' => [
-                    [
-                        'title' => 'O dia que fiquei ao lado do criador do PHP',
-                        'url' => 'https://gpsdodev.com.br/o-dia-que-fiquei-ao-lado-do-criador-do-php',
-                        'type' => 'Post'
-                    ],
-                    [
-                        'title' => 'Estamos evoluindo ou só complicando o básico?',
-                        'url' => 'https://gpsdodev.com.br/estamos-evoluindo-ou-complicando-o-basico',
-                        'type' => 'Post'
-                    ]
-                ]
+                'target_tags' => ['Carreira', 'Negócios']
             ],
             'construcao' => [
                 'label' => 'Construção',
@@ -110,18 +144,7 @@ class BussolaReportService
                         'Diminua seu WIP (Work in Progress). Trabalhe ativamente em apenas uma coisa de cada vez até finalizá-la.'
                     ]
                 ],
-                'recommended_content' => [
-                    [
-                        'title' => 'Double check não é paranoia, é maturidade',
-                        'url' => 'https://gpsdodev.com.br/double-check-nao-e-paranoia-e-maturidade',
-                        'type' => 'Post'
-                    ],
-                    [
-                        'title' => 'Constância é o método',
-                        'url' => 'https://gpsdodev.com.br/constancia-e-o-metodo',
-                        'type' => 'Post'
-                    ]
-                ]
+                'target_tags' => ['Engenharia', 'Segurança']
             ],
             'conexao' => [
                 'label' => 'Conexão',
@@ -148,18 +171,7 @@ class BussolaReportService
                         'Se estiver há mais de 30 minutos batendo cabeça num erro incompreensível, levante a mão e peça ajuda.'
                     ]
                 ],
-                'recommended_content' => [
-                    [
-                        'title' => 'A sutil arte de ficar em silêncio',
-                        'url' => 'https://gpsdodev.com.br/a-sutil-arte-de-ficar-em-silencio',
-                        'type' => 'Post'
-                    ],
-                    [
-                        'title' => '7 trocas de palavras que mudam sua comunicação',
-                        'url' => 'https://gpsdodev.com.br/7-trocas-de-palavras-que-mudam-sua-comunicacao',
-                        'type' => 'Post'
-                    ]
-                ]
+                'target_tags' => ['Comunicação', 'Liderança']
             ],
             'consciencia' => [
                 'label' => 'Consciência',
@@ -186,18 +198,7 @@ class BussolaReportService
                         'Remova qualquer notificação e distrações pesadas pelo menos nos 60 minutos do começo do seu dia para se calibrar.'
                     ]
                 ],
-                'recommended_content' => [
-                    [
-                        'title' => 'Achômetro tem péssima precisão',
-                        'url' => 'https://gpsdodev.com.br/achometro-pessima-precisao',
-                        'type' => 'Post'
-                    ],
-                    [
-                        'title' => 'A gente cresce quando se permite se perder',
-                        'url' => 'https://gpsdodev.com.br/a-gente-cresce-quando-se-permite-se-perder',
-                        'type' => 'Post'
-                    ]
-                ]
+                'target_tags' => ['Reflexão']
             ],
             'evolucao' => [
                 'label' => 'Evolução',
@@ -224,18 +225,7 @@ class BussolaReportService
                         'Inscreva-se ou monte um pequeno desafio na companhia de só mais 1 dev para aplicar conhecimento de uma stack nova em 1 final de semana.'
                     ]
                 ],
-                'recommended_content' => [
-                    [
-                        'title' => 'IA faz, fala e faz, mas mente exausta não resolve',
-                        'url' => 'https://gpsdodev.com.br/ia-faz-mas-mente-exausta-nao-resolve',
-                        'type' => 'Post'
-                    ],
-                    [
-                        'title' => 'IA como alavanca ou muleta?',
-                        'url' => 'https://gpsdodev.com.br/ia-como-alavanca-ou-como-muleta',
-                        'type' => 'Post'
-                    ]
-                ]
+                'target_tags' => ['Aprendizado', 'IA']
             ],
             'equilibrio' => [
                 'label' => 'Equilíbrio',
@@ -262,18 +252,7 @@ class BussolaReportService
                         'Se exercite por meros 15 min hoje, focando apenas no momento motor sem música nova ou podcasts atrelados — desligue o input.'
                     ]
                 ],
-                'recommended_content' => [
-                    [
-                        'title' => 'Infarto ou derrame, a escolha silenciosa',
-                        'url' => 'https://gpsdodev.com.br/infarto-ou-derrame-a-escolha-silenciosa',
-                        'type' => 'Post'
-                    ],
-                    [
-                        'title' => 'Nunca desperdice uma noite não dormida',
-                        'url' => 'https://gpsdodev.com.br/nunca-desperdice-uma-noite-nao-dormida',
-                        'type' => 'Post'
-                    ]
-                ]
+                'target_tags' => ['Produtividade']
             ],
         ];
     }
