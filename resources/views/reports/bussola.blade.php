@@ -245,9 +245,17 @@
 </head>
 <body>
 
-    <footer style="position: fixed; bottom: -50px; left: 0px; right: 0px; height: 30px; border-top: 1px solid #e2e8f0; padding-top: 10px; font-size: 11px; color: #64748b; font-weight: 500;">
-        <img src="{{ public_path('logo-light.png') }}" height="18" style="vertical-align: middle; margin-right: 10px;">
-        <span style="vertical-align: middle;">Relatório elaborado para: <strong>{{ $report->name }}</strong></span>
+    <footer style="position: fixed; bottom: -50px; left: 0px; right: 0px; height: 30px; border-top: 1px solid #e2e8f0; padding-top: 10px; font-size: 11px; color: #64748b; font-weight: 500; font-family: 'Inter', sans-serif;">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="text-align: left; width: 50%; vertical-align: middle;">
+                    <img src="{{ public_path('logo-light.png') }}" height="18">
+                </td>
+                <td style="text-align: right; width: 50%; vertical-align: middle; font-style: italic;">
+                    Relatório elaborado para: <strong>{{ $report->name }}</strong>
+                </td>
+            </tr>
+        </table>
     </footer>
 
     <!-- Cover Page -->
@@ -361,7 +369,7 @@
     <div class="page-break"></div>
 
     <!-- Mentorship Upsell Page -->
-    <div>
+    <div style="page-break-inside: avoid;">
         <div class="header-logo"><img src="{{ public_path('logo-light.png') }}" height="45" alt="GPS do Dev"></div>
         <div class="main-title" style="font-size: 32px; margin-bottom: 20px;">Vá além do diagnóstico.</div>
         
