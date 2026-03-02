@@ -399,7 +399,7 @@
                     <div style="font-weight: bold; color: #0f172a; margin-bottom: 10px;">Como garantir seu acesso:</div>
                     <ol style="color: #475569; font-size: 14px; text-align: left; padding-left: 20px; margin-bottom: 10px;">
                         <li style="margin-bottom: 5px;">Faça um PIX no valor acima para a chave: <strong>pix@gpsdodev.com.br</strong></li>
-                        <li>Envie o comprovante para o nosso e-mail e abriremos o canal no WhatsApp com você.</li>
+                        <li>Envie o comprovante para <strong>pix@gpsdodev.com.br</strong> e abriremos o canal no WhatsApp com você.</li>
                     </ol>
                 </div>
             </div>
