@@ -366,7 +366,7 @@
             </div>
             
             <p style="color: #475569; font-size: 16px; line-height: 1.6; text-align: center; margin-bottom: 30px;">
-                O GPS do Dev te deu a direção. Agora, vamos pavimentar o caminho <strong>juntos</strong>. Receba acompanhamento individual para desbloquear sua carreira técnica sem precisar marcar reuniões.
+                O GPS do Dev te deu a direção. Agora, vamos pavimentar o caminho <strong>juntos</strong>. Receba acompanhamento focado 100% no seu desenvolvimento pessoal e evolução de carreira.
             </p>
 
             <table style="width: 100%; margin-bottom: 30px;">
@@ -374,36 +374,39 @@
                     <td style="width: 50%; vertical-align: top; padding-right: 15px;">
                         <div style="font-weight: bold; margin-bottom: 10px; color: #b845cf;">Como funciona:</div>
                         <ul style="color: #334155; font-size: 14px; line-height: 1.6; padding-left: 20px; margin: 0;">
-                            <li style="margin-bottom: 5px;">Áudio, texto ou vídeo sob demanda.</li>
-                            <li style="margin-bottom: 5px;">Envie suas dúvidas de arquitetura, carreira ou código no seu tempo.</li>
-                            <li style="margin-bottom: 5px;">Respostas aprofundadas e análise de cenário feitas diretamente por mim.</li>
-                            <li>Sem conflito de agenda: suporte direto no seu WhatsApp.</li>
+                            <li style="margin-bottom: 5px;">Mande áudio, texto ou vídeo no seu tempo.</li>
+                            <li style="margin-bottom: 5px;">Envie suas dúvidas de carreira, transição ou desenvolvimento pessoal.</li>
+                            <li style="margin-bottom: 5px;">Respostas construtivas e diretas para destravar sua jornada.</li>
+                            <li>Sem conflito de agenda: o apoio que você precisa, direto no seu WhatsApp.</li>
                         </ul>
                     </td>
                     <td style="width: 50%; vertical-align: top; border-left: 1px solid #e2e8f0; padding-left: 15px;">
                         <div style="font-weight: bold; margin-bottom: 10px; color: #b845cf;">A quem se destina:</div>
                         <ul style="color: #334155; font-size: 14px; line-height: 1.6; padding-left: 20px; margin: 0;">
-                            <li style="margin-bottom: 5px;">Devs estagnados precisando de direção técnica.</li>
-                            <li style="margin-bottom: 5px;">Plenos buscando a ponte estrutural para Senioridade.</li>
-                            <li style="margin-bottom: 5px;">Líderes técnicos resolvendo gargalos de equipe.</li>
+                            <li style="margin-bottom: 5px;">Devs estagnados precisando de clareza de carreira.</li>
+                            <li style="margin-bottom: 5px;">Profissionais buscando a ponte comportamental para a Senioridade.</li>
+                            <li style="margin-bottom: 5px;">Quem precisa desenhar os próximos passos sem ansiedade.</li>
                         </ul>
                     </td>
                 </tr>
             </table>
 
             <div style="background-color: #ffffff; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 25px; text-align: center;">
-                <div style="font-size: 16px; color: #64748b; margin-bottom: 15px;">Investimento</div>
-                <div style="font-size: 36px; font-weight: bold; color: #1e293b; margin-bottom: 10px;">R$ 147<span style="font-size: 18px; color: #94a3b8;">/mês</span></div>
+                <div style="font-size: 16px; color: #64748b; margin-bottom: 15px;">Valor da Sessão</div>
+                <div style="font-size: 36px; font-weight: bold; color: #1e293b; margin-bottom: 10px;">R$ 147</div>
                 
                 <div style="margin-top: 25px;">
-                    <div style="font-weight: bold; color: #0f172a; margin-bottom: 10px;">Como garantir sua vaga:</div>
-                    <p style="font-size: 14px; color: #475569; margin-bottom: 10px;">Efetuou o Pix acima? Perfeito. Em até 24h, confirmarei o pagamento e abriremos o canal exclusivo de comunicação no WhatsApp.</p>
+                    <div style="font-weight: bold; color: #0f172a; margin-bottom: 10px;">Como garantir seu acesso:</div>
+                    <ol style="color: #475569; font-size: 14px; text-align: left; padding-left: 20px; margin-bottom: 10px;">
+                        <li style="margin-bottom: 5px;">Faça um PIX no valor acima para a chave: <strong>pix@gpsdodev.com.br</strong></li>
+                        <li>Envie o comprovante para o nosso e-mail e abriremos o canal no WhatsApp com você.</li>
+                    </ol>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 30px;">
                 <p style="font-size: 14px; color: #64748b;">
-                    Dúvidas antes de assinar? Mande um email para <strong>contato@gpsdodev.com.br</strong>
+                    Ficou com alguma dúvida? Mande um email para <strong>contato@gpsdodev.com.br</strong>
                 </p>
             </div>
         </div>
