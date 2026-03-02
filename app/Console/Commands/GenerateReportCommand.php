@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\ReportRequest;
 use App\Services\BussolaReportService;
-use function Spatie\LaravelPdf\Support\pdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Str;
 
 class GenerateReportCommand extends Command
@@ -46,19 +46,12 @@ class GenerateReportCommand extends Command
             mkdir(dirname($pdfPath), 0755, true);
         }
 
-        pdf()
-            ->view('reports.bussola', [
-                'report' => $reportRequest,
-                'dimensionsData' => $dimensionsData,
-            ])
-            ->margins(10, 10, 10, 10)
-            ->format('a4')
-            ->withBrowsershot(function ($browsershot) {
-                $browsershot
-                    ->setChromePath('/var/www/html/puppeteer/chromium/linux_arm-1592206/chrome-linux/chrome')
-                    ->noSandbox();
-            })
-            ->save($pdfPath);
+        $pdf = Pdf::loadView('reports.bussola', [
+            'report' => $reportRequest,
+            'dimensionsData' => $dimensionsData,
+        ]);
+        
+        $pdf->save($pdfPath);
 
         $reportRequest->update([
             'status' => 'generated',

@@ -1,148 +1,350 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Bússola Profissional - GPS do Dev</title>
-    <!-- Tailwind via CDN for spatie/laravel-pdf -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-            color: #0f172a; /* slate-900 */
+            font-family: sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            margin: 0;
+            padding: 20px;
         }
         .page-break {
             page-break-after: always;
         }
-        /* Custom GPS do Dev accent colors */
-        .text-accent { color: #f97316; } /* orange-500 */
+        .text-accent { color: #f97316; }
         .bg-accent { background-color: #f97316; }
-        .border-accent { border-color: #f97316; }
         
-        .score-bar {
+        .header-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #f97316;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 100px;
+            margin-bottom: 20px;
+        }
+        .main-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: #0f172a;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+        
+        .profile-box {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            margin: 0 auto;
+            width: 80%;
+            text-align: left;
+        }
+        .profile-label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1e293b;
+            margin: 0 0 5px 0;
+        }
+        .email {
+            color: #64748b;
+            margin: 0 0 30px 0;
+        }
+        
+        .divider {
+            border-top: 1px solid #f1f5f9;
+            margin: 30px 0;
+        }
+        
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f97316;
+            margin: 0 0 15px 0;
+        }
+        
+        .profile-desc {
+            color: #475569;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 2px solid #f97316;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        /* Overview Table */
+        .overview-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
+        .overview-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .overview-header {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .overview-icon-label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1e293b;
+        }
+        .overview-score {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+        }
+        
+        .score-bar-container {
+            width: 100%;
             height: 12px;
-            border-radius: 9999px;
-            background-color: #e2e8f0; /* slate-200 */
-            overflow: hidden;
+            background-color: #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 5px;
         }
-        .score-fill {
-            height: 100%;
-            border-radius: 9999px;
+        .score-bar-fill {
+            height: 12px;
+            border-radius: 6px;
         }
-        .score-high { background-color: #22c55e; } /* green-500 */
-        .score-medium { background-color: #eab308; } /* yellow-500 */
-        .score-low { background-color: #f97316; } /* orange-500 */
+        
+        .text-high { color: #16a34a; }
+        .bg-high { background-color: #22c55e; }
+        .text-medium { color: #ca8a04; }
+        .bg-medium { background-color: #eab308; }
+        .text-low { color: #ea580c; }
+        .bg-low { background-color: #f97316; }
+        
+        .level-label {
+            font-size: 12px;
+            color: #64748b;
+            text-align: right;
+        }
+        
+        /* Detailed Analysis */
+        .detail-card {
+            background-color: #ffffff;
+            border-top: 4px solid #f97316;
+            border-left: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .detail-header-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .detail-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #0f172a;
+        }
+        .detail-score-badge {
+            background-color: #f1f5f9;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #1e293b;
+            text-align: right;
+        }
+        
+        .sub-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .analysis-text {
+            color: #334155;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .action-plan-box {
+            background-color: #f8fafc;
+            border: 1px solid #f1f5f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .action-item-table {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .action-number {
+            width: 24px;
+            height: 24px;
+            background-color: #f97316;
+            color: #ffffff;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 24px;
+            vertical-align: top;
+        }
+        .action-text {
+            padding-left: 15px;
+            color: #334155;
+            line-height: 1.5;
+            vertical-align: top;
+        }
+        
+        .link-item {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #334155;
+            display: block;
+            text-decoration: none;
+        }
     </style>
 </head>
-<body class="antialiased p-10">
+<body>
 
     <!-- Cover Page -->
-    <div class="h-screen flex flex-col items-center justify-center text-center">
-        <h3 class="text-xl font-bold text-accent uppercase tracking-widest mb-4">GPS do Dev</h3>
-        <h1 class="text-5xl font-extrabold text-slate-900 mb-6">Relatório Completo<br/>Bússola Profissional</h1>
+    <div style="position: relative; height: 100%;">
+        <div class="header-title">GPS do Dev</div>
+        <div class="main-title">Relatório Completo<br/>Bússola Profissional</div>
         
-        <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 max-w-2xl w-full mx-auto mt-10">
-            <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Preparado para</p>
-            <h2 class="text-3xl font-bold text-slate-800">{{ $report->name }}</h2>
-            <p class="text-slate-500 mt-1">{{ $report->email }}</p>
+        <div class="profile-box">
+            <div class="profile-label">Preparado para</div>
+            <div class="name">{{ $report->name }}</div>
+            <div class="email">{{ $report->email }}</div>
             
-            <div class="mt-8 pt-8 border-t border-slate-100">
-                <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Seu Perfil Principal</p>
-                <h3 class="text-2xl font-bold text-accent">{{ $report->profile['label'] }}</h3>
-                <p class="text-slate-600 mt-3 text-lg leading-relaxed">{{ $report->profile['description'] }}</p>
-            </div>
+            <div class="divider"></div>
+            
+            <div class="profile-label">Seu Perfil Principal</div>
+            <div class="profile-name">{{ $report->profile['label'] }}</div>
+            <div class="profile-desc">{{ $report->profile['description'] }}</div>
         </div>
         
-        <p class="mt-auto text-sm text-slate-400 pb-10">Gerado em {{ now()->format('d/m/Y') }}</p>
+        <div class="footer">Gerado em {{ now()->format('d/m/Y') }}</div>
     </div>
 
     <div class="page-break"></div>
 
     <!-- Overview Page -->
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-8 border-b-2 border-accent pb-2 inline-block">Visão Geral das Dimensões</h2>
+    <div>
+        <div class="section-title">Visão Geral das Dimensões</div>
         
-        <div class="space-y-6">
-            @foreach(['direcao', 'construcao', 'conexao', 'consciencia', 'evolucao', 'equilibrio'] as $dimKey)
-                @php 
-                    $data = $dimensionsData[$dimKey]; 
-                    $scoreClass = $data['score'] >= 75 ? 'score-high' : ($data['score'] >= 40 ? 'score-medium' : 'score-low');
-                    $textClass = $data['score'] >= 75 ? 'text-green-600' : ($data['score'] >= 40 ? 'text-yellow-600' : 'text-orange-600');
-                @endphp
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <span class="text-2xl">{{ $data['icon'] }}</span>
-                            <span class="text-lg font-bold text-slate-800">{{ $data['label'] }}</span>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xl font-bold {{ $textClass }}">{{ $data['score'] }}</span>
-                            <span class="text-sm text-slate-500 ml-1">/ 100</span>
-                        </div>
-                    </div>
-                    <div class="score-bar w-full">
-                        <div class="score-fill {{ $scoreClass }}" style="width: {{ $data['score'] }}%"></div>
-                    </div>
-                    <p class="mt-2 text-sm font-medium text-slate-500 text-right">{{ $data['level_label'] }}</p>
+        @foreach(['direcao', 'construcao', 'conexao', 'consciencia', 'evolucao', 'equilibrio'] as $dimKey)
+            @php 
+                $data = $dimensionsData[$dimKey]; 
+                $scoreClass = $data['score'] >= 75 ? 'bg-high' : ($data['score'] >= 40 ? 'bg-medium' : 'bg-low');
+                $textClass = $data['score'] >= 75 ? 'text-high' : ($data['score'] >= 40 ? 'text-medium' : 'text-low');
+            @endphp
+            <div class="overview-card" style="margin-bottom: 20px;">
+                <table class="overview-header">
+                    <tr>
+                        <td class="overview-icon-label">{{ $data['icon'] }} {{ $data['label'] }}</td>
+                        <td class="overview-score {{ $textClass }}">{{ $data['score'] }} <span style="font-size: 14px; color: #64748b;">/ 100</span></td>
+                    </tr>
+                </table>
+                <div class="score-bar-container">
+                    <div class="score-bar-fill {{ $scoreClass }}" style="width: {{ $data['score'] }}%"></div>
                 </div>
-            @endforeach
-        </div>
+                <div class="level-label">{{ $data['level_label'] }}</div>
+            </div>
+        @endforeach
     </div>
 
     <div class="page-break"></div>
 
     <!-- Detailed Analysis Pages -->
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-10 border-b-2 border-accent pb-2 inline-block">Análise Profunda e Plano de Ação</h2>
+    <div>
+        <div class="section-title">Análise Profunda e Plano de Ação</div>
         
         @foreach(['direcao', 'construcao', 'conexao', 'consciencia', 'evolucao', 'equilibrio'] as $index => $dimKey)
             @php $data = $dimensionsData[$dimKey]; @endphp
             
-            <div class="mb-12 {{ $index % 2 !== 0 ? 'page-break' : '' }}">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-accent">
-                    <div class="flex items-center justify-between mb-6">
-                        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-3">
-                            <span>{{ $data['icon'] }}</span> {{ $data['label'] }}
-                        </h3>
-                        <div class="bg-slate-100 px-4 py-1.5 rounded-full">
-                            <span class="font-bold text-slate-800">Score: {{ $data['score'] }}</span>
-                            <span class="text-sm text-slate-500">({{ $data['level_label'] }})</span>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Diagnóstico Expandido</h4>
-                        <p class="text-slate-700 leading-relaxed text-justify">{{ $data['analysis'] }}</p>
-                    </div>
-
-                    <div class="mb-8 bg-slate-50 p-6 rounded-xl border border-slate-100">
-                        <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Seu Plano de Ação (Próximos 30 dias)</h4>
-                        <ul class="space-y-3">
-                            @foreach($data['action_plan'] as $idx => $action)
-                                <li class="flex items-start gap-3">
-                                    <span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-accent text-white text-xs font-bold mt-0.5">{{ $idx + 1 }}</span>
-                                    <span class="text-slate-700 leading-relaxed">{{ $action }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                    @if(!empty($data['recommended_content']))
-                        <div>
-                            <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Leituras Recomendadas (GPS do Dev)</h4>
-                            <div class="grid grid-cols-1 gap-3">
-                                @foreach($data['recommended_content'] as $content)
-                                    <a href="{{ $content['url'] }}" class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 bg-white text-slate-700 text-sm font-medium">
-                                        <span class="text-accent">🔗</span>
-                                        {{ $content['title'] }}
-                                    </a>
-                                @endforeach
+            <div class="detail-card">
+                <table class="detail-header-table">
+                    <tr>
+                        <td class="detail-title">{{ $data['icon'] }} {{ $data['label'] }}</td>
+                        <td align="right">
+                            <div class="detail-score-badge">
+                                Score: {{ $data['score'] }} <span style="font-size: 12px; font-weight: normal; color: #64748b;">({{ $data['level_label'] }})</span>
                             </div>
-                        </div>
-                    @endif
+                        </td>
+                    </tr>
+                </table>
+                
+                <div class="sub-title">Diagnóstico Expandido</div>
+                <div class="analysis-text">{{ $data['analysis'] }}</div>
+
+                <div class="action-plan-box">
+                    <div class="sub-title">Seu Plano de Ação (Próximos 30 dias)</div>
+                    @foreach($data['action_plan'] as $idx => $action)
+                        <table class="action-item-table">
+                            <tr>
+                                <td width="30"><div class="action-number">{{ $idx + 1 }}</div></td>
+                                <td class="action-text">{{ $action }}</td>
+                            </tr>
+                        </table>
+                    @endforeach
                 </div>
+
+                @if(!empty($data['recommended_content']))
+                    <div>
+                        <div class="sub-title">Leituras Recomendadas (GPS do Dev)</div>
+                        @foreach($data['recommended_content'] as $content)
+                            <a href="{{ $content['url'] }}" class="link-item">
+                                <span style="color: #f97316; margin-right: 8px;">&#128279;</span>
+                                {{ $content['title'] }}
+                            </a>
+                        @endforeach
+                    </div>
+                @endif
             </div>
+            
+            @if($index % 2 !== 0 && $index !== 5)
+                <div class="page-break"></div>
+            @endif
         @endforeach
     </div>
 
