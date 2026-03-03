@@ -40,7 +40,8 @@ class GenerateReportCommand extends Command
             $dimensionsData[$dim] = $bussolaService->getDimensionData($dim, $score);
         }
 
-        $pdfPath = storage_path('app/reports/bussola_' . Str::slug($reportRequest->name) . '_' . date('Ymd_His') . '.pdf');
+        $fileName = 'bussola_' . Str::slug($reportRequest->name) . '_' . date('Ymd_His') . '.pdf';
+        $pdfPath = storage_path('app/public/reports/' . $fileName);
 
         if (!is_dir(dirname($pdfPath))) {
             mkdir(dirname($pdfPath), 0755, true);
@@ -58,7 +59,9 @@ class GenerateReportCommand extends Command
             'pdf_path' => $pdfPath,
         ]);
 
-        $this->info("Relatório PDF gerado com sucesso em: {$pdfPath}");
+        $this->info("Relatório PDF gerado com sucesso!");
+        $this->info("📍 Caminho local: {$pdfPath}");
+        $this->warn("🌐 URL para download: " . url('storage/reports/' . $fileName));
 
         return Command::SUCCESS;
     }
