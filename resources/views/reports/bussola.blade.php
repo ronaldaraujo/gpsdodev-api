@@ -9,7 +9,7 @@
         @page { margin: 40px 40px 80px 40px; }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background-color: #ffffff;
             color: #0f172a;
             margin: 0;
             padding: 0;
@@ -366,73 +366,71 @@
         @endforeach
     </div>
 
-    <div class="page-break"></div>
-
     <!-- Mentorship Upsell Page -->
     <div style="page-break-inside: avoid;">
-        <div class="header-logo"><img src="{{ public_path('logo-light.png') }}" height="45" alt="GPS do Dev"></div>
-        <div class="main-title" style="font-size: 32px; margin-bottom: 20px;">Vá além do diagnóstico.</div>
+        <div class="header-logo" style="margin-top: 30px; margin-bottom: 15px;"><img src="{{ public_path('logo-light.png') }}" height="35" alt="GPS do Dev"></div>
+        <div class="main-title" style="font-size: 26px; margin-bottom: 12px;">Vá além do diagnóstico.</div>
         
-        <div class="profile-box" style="border: 2px solid #b845cf; background-color: #faf5ff;">
-            <div style="text-align: center; margin-bottom: 20px;">
-                <span style="background-color: #b845cf; color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; text-transform: uppercase;">Acesso Direto</span>
+        <div class="profile-box" style="border: 2px solid #b845cf; background-color: #faf5ff; padding: 25px;">
+            <div style="text-align: center; margin-bottom: 12px;">
+                <span style="background-color: #b845cf; color: white; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 12px; text-transform: uppercase;">Acesso Direto</span>
             </div>
             
-            <div style="text-align: center; font-size: 28px; font-weight: bold; color: #1e293b; margin-bottom: 15px;">
+            <div style="text-align: center; font-size: 22px; font-weight: bold; color: #1e293b; margin-bottom: 10px;">
                 Mentoria Assíncrona via WhatsApp (1:1)
             </div>
             
-            <p style="color: #475569; font-size: 16px; line-height: 1.6; text-align: center; margin-bottom: 30px;">
-                O GPS do Dev te deu a direção. Agora, vamos pavimentar o caminho <strong>juntos</strong>. Receba acompanhamento focado 100% no seu desenvolvimento pessoal e evolução de carreira.
+            <p style="color: #475569; font-size: 13px; line-height: 1.5; text-align: center; margin-bottom: 18px;">
+                O GPS do Dev te deu a direção. Agora, vamos pavimentar o caminho <strong>juntos</strong>. Acompanhamento focado no seu desenvolvimento e evolução de carreira.
             </p>
 
-            <table style="width: 100%; margin-bottom: 30px;">
+            <table style="width: 100%; margin-bottom: 18px;">
                 <tr>
-                    <td style="width: 50%; vertical-align: top; padding-right: 15px;">
-                        <div style="font-weight: bold; margin-bottom: 10px; color: #b845cf;">Como funciona:</div>
-                        <ul style="color: #334155; font-size: 14px; line-height: 1.6; padding-left: 20px; margin: 0;">
-                            <li style="margin-bottom: 5px;">Mande áudio, texto ou vídeo no seu tempo.</li>
-                            <li style="margin-bottom: 5px;">Envie suas dúvidas de carreira, transição ou desenvolvimento pessoal.</li>
-                            <li style="margin-bottom: 5px;">Respostas construtivas e diretas para destravar sua jornada.</li>
-                            <li>Sem conflito de agenda: o apoio que você precisa, direto no seu WhatsApp.</li>
+                    <td style="width: 50%; vertical-align: top; padding-right: 12px;">
+                        <div style="font-weight: bold; margin-bottom: 6px; color: #b845cf; font-size: 13px;">Como funciona:</div>
+                        <ul style="color: #334155; font-size: 12px; line-height: 1.5; padding-left: 18px; margin: 0;">
+                            <li style="margin-bottom: 3px;">Mande áudio, texto ou vídeo no seu tempo.</li>
+                            <li style="margin-bottom: 3px;">Envie dúvidas de carreira, transição ou desenvolvimento pessoal.</li>
+                            <li style="margin-bottom: 3px;">Respostas construtivas e diretas para destravar sua jornada.</li>
+                            <li>Sem conflito de agenda: apoio direto no seu WhatsApp.</li>
                         </ul>
                     </td>
-                    <td style="width: 50%; vertical-align: top; border-left: 1px solid #e2e8f0; padding-left: 15px;">
-                        <div style="font-weight: bold; margin-bottom: 10px; color: #b845cf;">A quem se destina:</div>
-                        <ul style="color: #334155; font-size: 14px; line-height: 1.6; padding-left: 20px; margin: 0;">
-                            <li style="margin-bottom: 5px;">Devs estagnados precisando de clareza de carreira.</li>
-                            <li style="margin-bottom: 5px;">Profissionais buscando a ponte comportamental para a Senioridade.</li>
-                            <li style="margin-bottom: 5px;">Quem precisa desenhar os próximos passos sem ansiedade.</li>
+                    <td style="width: 50%; vertical-align: top; border-left: 1px solid #e2e8f0; padding-left: 12px;">
+                        <div style="font-weight: bold; margin-bottom: 6px; color: #b845cf; font-size: 13px;">A quem se destina:</div>
+                        <ul style="color: #334155; font-size: 12px; line-height: 1.5; padding-left: 18px; margin: 0;">
+                            <li style="margin-bottom: 3px;">Devs estagnados precisando de clareza de carreira.</li>
+                            <li style="margin-bottom: 3px;">Profissionais buscando a ponte comportamental para a Senioridade.</li>
+                            <li style="margin-bottom: 3px;">Quem precisa desenhar os próximos passos sem ansiedade.</li>
                         </ul>
                     </td>
                 </tr>
             </table>
 
-            <div style="background-color: #ffffff; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 25px; text-align: center;">
-                <div style="font-size: 16px; color: #64748b; margin-bottom: 10px;">Valor da Sessão</div>
-                <div style="font-size: 20px; color: #94a3b8; text-decoration: line-through; margin-bottom: 5px;">R$ 247,90</div>
+            <div style="background-color: #ffffff; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 18px; text-align: center;">
+                <div style="font-size: 13px; color: #64748b; margin-bottom: 6px;">Valor da Sessão</div>
+                <div style="font-size: 16px; color: #94a3b8; text-decoration: line-through; margin-bottom: 4px;">R$ 247,90</div>
                 
-                <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 10px; margin: 15px auto; max-w: 80%; display: inline-block;">
-                    <div style="color: #16a34a; font-size: 13px; font-weight: bold; margin-bottom: 5px;">Cashback de R$ 29,90 liberado!</div>
-                    <div style="color: #15803d; font-size: 12px; line-height: 1.4;">
-                        Como você já investiu no seu Relatório Completo, use esse valor como crédito.<br>
+                <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 8px; margin: 10px auto; display: inline-block;">
+                    <div style="color: #16a34a; font-size: 11px; font-weight: bold; margin-bottom: 3px;">Cashback de R$ 29,90 liberado!</div>
+                    <div style="color: #15803d; font-size: 11px; line-height: 1.3;">
+                        Você já investiu no Relatório Completo, use esse valor como crédito.<br>
                         <strong>Válido apenas nas próximas 24 horas.</strong>
                     </div>
                 </div>
 
-                <div style="font-size: 36px; font-weight: bold; color: #1e293b; margin-top: 10px;">R$ 217,10</div>
+                <div style="font-size: 30px; font-weight: bold; color: #1e293b; margin-top: 8px;">R$ 217,10</div>
                 
-                <div style="margin-top: 25px;">
-                    <div style="font-weight: bold; color: #0f172a; margin-bottom: 10px;">Como garantir seu acesso:</div>
-                    <ol style="color: #475569; font-size: 14px; text-align: left; padding-left: 20px; margin-bottom: 10px;">
-                        <li style="margin-bottom: 5px;">Faça um PIX no valor acima para a chave: <strong>pix@gpsdodev.com.br</strong></li>
+                <div style="margin-top: 15px;">
+                    <div style="font-weight: bold; color: #0f172a; margin-bottom: 6px; font-size: 13px;">Como garantir seu acesso:</div>
+                    <ol style="color: #475569; font-size: 12px; text-align: left; padding-left: 18px; margin-bottom: 8px;">
+                        <li style="margin-bottom: 4px;">Faça um PIX no valor acima para a chave: <strong>pix@gpsdodev.com.br</strong></li>
                         <li>Envie o comprovante para <strong>pix@gpsdodev.com.br</strong> e abriremos o canal no WhatsApp com você.</li>
                     </ol>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 30px;">
-                <p style="font-size: 14px; color: #64748b;">
+            <div style="text-align: center; margin-top: 18px;">
+                <p style="font-size: 12px; color: #64748b;">
                     Ficou com alguma dúvida? Mande um email para <strong>contato@gpsdodev.com.br</strong>
                 </p>
             </div>
