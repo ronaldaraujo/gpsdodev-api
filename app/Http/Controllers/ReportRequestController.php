@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BussolaSubmission;
+use App\Models\ReportRequest;
 use Illuminate\Http\Request;
 
 class ReportRequestController extends Controller
@@ -15,9 +17,10 @@ class ReportRequestController extends Controller
             'profile' => 'required|array',
             'strengths' => 'required|array',
             'growth_areas' => 'required|array',
+            'submission_token' => 'nullable|string|uuid',
         ]);
 
-        $reportRequest = \App\Models\ReportRequest::create([
+        $reportRequest = ReportRequest::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'scores' => $validated['scores'],
@@ -27,9 +30,16 @@ class ReportRequestController extends Controller
             'status' => 'pending',
         ]);
 
+        // Link anonymous submission if token was provided
+        if (!empty($validated['submission_token'])) {
+            BussolaSubmission::where('token', $validated['submission_token'])
+                ->whereNull('report_request_id')
+                ->update(['report_request_id' => $reportRequest->id]);
+        }
+
         return response()->json([
             'message' => 'Report request saved successfully.',
-            'data' => clone $reportRequest, // Return the saved request (excluding sensitive info if any)
+            'data' => $reportRequest,
         ], 201);
     }
 }
